@@ -29,4 +29,8 @@
     <servlet-name>recommendPic</servlet-name>
     <servlet-class>com.demo.recommendPic</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>getpic</servlet-name>
+    <servlet-class>com.demo.getpic</servlet-class>
+  </servlet>
 </web-app>
