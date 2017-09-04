@@ -285,6 +285,8 @@ public class SomeFunction {
     	try {
     		PreparedStatement ps = conn.prepareStatement("INSERT INTO user_table(name,password,sex) VALUES(?,?,?)");
     		ps.setString(1, username);
+    		ps.setString(2, password);
+    		ps.setString(3, sexName);
     		rs = ps.executeUpdate();
     		if(rs == 1) {
     			result = true;
@@ -295,12 +297,6 @@ public class SomeFunction {
     		e.printStackTrace();
     	}
     	getConn.closeConnection(conn);
-    	return result;
-    }
-    
-    public boolean checkusername(String username)
-    {
-    	boolean result = false;
     	return result;
     }
     
