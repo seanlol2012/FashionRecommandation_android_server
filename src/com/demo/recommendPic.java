@@ -43,9 +43,26 @@ public class recommendPic extends HttpServlet {
 		String username = request.getParameter("username");
 		String index_str = request.getParameter("index");
 		int index = Integer.parseInt(index_str);
+		int index_max;
+		if(index < 0) {
+			index = 0;
+		}
+		if(index >= 20) {
+			index = 19;
+		}
 		
 		SomeFunction someFunction = new SomeFunction();
 		List<String> pic_list = someFunction.findpic(username);
+		index_max = pic_list.size();
+		
+		//判断是否越界，以及List是否为空，为空则附加一张图进去
+		if(index >= index_max) {
+			index = index_max - 1;
+		}
+		if(index_max <= 0) {
+			pic_list.add("/home/gzx/2017-retrieval-image/test9.jpg");
+			index = 0;
+		}
 		
 		FileInputStream hFile = new FileInputStream(pic_list.get(index));
 		
