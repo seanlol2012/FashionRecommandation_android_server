@@ -16,14 +16,15 @@ public class DataBase {
     	
     	try {
     		Class.forName(driver);
+    		java.util.Date d=new java.util.Date();
     		conn = DriverManager.getConnection(url, user, password);
     		if(!conn.isClosed())
     		{
-    			System.out.println("database successful connected\n");
+    			System.out.println(d.toString()+" database successful connected\n");
     		}
     		else
     		{
-    			System.out.println("database failed to connect\n");
+    			System.out.println(d.toString()+" database failed to connect\n");
     		}
     	} catch(ClassNotFoundException e) {
     		e.printStackTrace();
@@ -40,6 +41,7 @@ public class DataBase {
     {
     	try {
     		conn.close();
+    		System.out.println("database connection closed\n");
     	} catch(SQLException e) {
     		e.printStackTrace();
     	}

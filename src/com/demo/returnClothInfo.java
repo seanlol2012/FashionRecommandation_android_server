@@ -2,6 +2,7 @@ package com.demo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import fashion_server.SomeFunction;
 
 /**
- * Servlet implementation class register
+ * Servlet implementation class returnClothInfo
  */
-@WebServlet("/register")
-public class register extends HttpServlet {
+@WebServlet("/returnClothInfo")
+public class returnClothInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public register() {
+    public returnClothInfo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +32,6 @@ public class register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -40,27 +40,21 @@ public class register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		request.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String sexName = request.getParameter("sex");
+		String index_str = request.getParameter("index");
+		int index = Integer.parseInt(index_str);
+		
+		SomeFunction someFunction = new SomeFunction();
+		List<String> pic_list = someFunction.findpic(username);
+		
+		String pic_name = pic_list.get(index);
+		String info_list = someFunction.findinfo(pic_name);
 		
 		PrintWriter out = response.getWriter();
-		SomeFunction someFunction = new SomeFunction();
-		boolean flag = someFunction.register(username, password, sexName);
 		java.util.Date d=new java.util.Date();
-		if(flag) {
-			out.write("server:registered");
-			System.out.println(d.toString()+" successful registered\n");
-		} else {
-			out.write("server:failed");
-			System.out.println(d.toString()+" failed to register\n");
-		}
+		out.write(info_list);
+		System.out.println(d.toString()+" successful send cloth info\n");
 		out.flush();
 		out.close();
 	}
-
 }

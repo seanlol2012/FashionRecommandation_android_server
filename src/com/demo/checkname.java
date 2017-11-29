@@ -49,12 +49,13 @@ public class checkname extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		SomeFunction someFunction = new SomeFunction();
 		boolean flag = someFunction.checkname(username);
+		java.util.Date d=new java.util.Date();
 		if(flag) {
 			out.write("server:check failed");
-			System.out.println("failed to check name\n");
+			System.out.println(d.toString()+" failed to check name\n");
 		} else {
 			out.write("server:legal username");
-			System.out.println("legal name\n");
+			System.out.println(d.toString()+" legal name\n");
 		}
 		out.flush();
 		out.close();

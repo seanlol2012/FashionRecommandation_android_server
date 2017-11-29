@@ -50,12 +50,13 @@ public class login extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		SomeFunction someFunction = new SomeFunction();
 		boolean flag = someFunction.login(username, password);
+		java.util.Date d=new java.util.Date();
 		if(flag) {
 			out.write("server:log in");
-			System.out.println("successful log in\n");
+			System.out.println(d.toString()+" successful log in\n");
 		} else {
 			out.write("server:failed");
-			System.out.println("failed to log in\n");
+			System.out.println(d.toString()+" failed to log in\n");
 		}
 		out.flush();
 		out.close();

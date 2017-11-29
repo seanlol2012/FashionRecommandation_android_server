@@ -50,8 +50,8 @@ public class getpic extends HttpServlet {
 		pic_name = pic_name + sdf.format(date);
 		pic_name = pic_name + ".jpg";
 		
-		PrintWriter pw = response.getWriter();
-		pw.println("successful received");
+		PrintWriter out = response.getWriter();
+		out.write("successful received");
 		
 		try(ServletInputStream sis = request.getInputStream()) {
 			OutputStream os = new FileOutputStream(pic_name);
@@ -68,6 +68,9 @@ public class getpic extends HttpServlet {
 			sis.close();
 			bos.close();
 			os.close();
+			
+			out.flush();
+			out.close();
 		}
 	}
 
