@@ -318,262 +318,262 @@ public class SomeFunction {
     			result = rs.getString("length_short");
     			System.out.println(" length_short: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,length_mid
 				result = rs.getString("length_mid");
     			System.out.println(" length_mid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,length_long
 				result = rs.getString("length_long");
     			System.out.println(" length_long: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_sleeveless
 				result = rs.getString("sleeve_length_sleeveless");
     			System.out.println(" sleeve_length_sleeveless: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_short
 				result = rs.getString("sleeve_length_short");
     			System.out.println(" sleeve_length_short: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_long
 				result = rs.getString("sleeve_length_long");
     			System.out.println(" sleeve_length_long: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_stand
 				result = rs.getString("collar_shape_stand");
     			System.out.println(" collar_shape_stand: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_V
 				result = rs.getString("collar_shape_V");
     			System.out.println(" collar_shape_V: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_bateau
 				result = rs.getString("collar_shape_bateau");
     			System.out.println(" collar_shape_bateau: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_stand
 				result = rs.getString("collar_shape_round");
     			System.out.println(" collar_shape_round: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_lapel
 				result = rs.getString("collar_shape_lapel");
     			System.out.println(" collar_shape_lapel: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_high
 				result = rs.getString("collar_shape_high");
     			System.out.println(" collar_shape_high: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_hoodie
 				result = rs.getString("collar_shape_hoodie");
     			System.out.println(" collar_shape_hoodie: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,model_tight
 				result = rs.getString("model_tight");
     			System.out.println(" model_tight: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,model_straight
 				result = rs.getString("model_straight");
     			System.out.println(" model_straight: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,model_loose
 				result = rs.getString("model_loose");
     			System.out.println(" model_loose: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_pure
 				result = rs.getString("pattern_pure");
     			System.out.println(" pattern_pure: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_grid
 				result = rs.getString("pattern_grid");
     			System.out.println(" pattern_grid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_dot
 				result = rs.getString("pattern_dot");
     			System.out.println(" pattern_dot: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_floral
 				result = rs.getString("pattern_floral");
     			System.out.println(" pattern_floral: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_cross-stripe
 				result = rs.getString("pattern_cross-stripe");
     			System.out.println(" pattern_cross-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_vertical-stripe
 				result = rs.getString("pattern_vertical-stripe");
     			System.out.println(" pattern_vertical-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_number&letter
 				result = rs.getString("pattern_number&letter");
     			System.out.println(" pattern_number&letter: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_repeat
 				result = rs.getString("pattern_repeat");
     			System.out.println(" pattern_repeat: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_short
 				result = rs.getString("pants_length_short");
     			System.out.println(" pants_length_short: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_mid
 				result = rs.getString("pants_length_mid");
     			System.out.println(" pants_length_mid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_long
 				result = rs.getString("pants_length_long");
     			System.out.println(" pants_length_long: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_pure
 				result = rs.getString("pants_pattern_pure");
     			System.out.println(" pants_pattern_pure: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_grid
 				result = rs.getString("pants_pattern_grid");
     			System.out.println(" pants_pattern_grid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_dot
 				result = rs.getString("pants_pattern_dot");
     			System.out.println(" pants_pattern_dot: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_floral
 				result = rs.getString("pants_pattern_floral");
     			System.out.println(" pants_pattern_floral: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_cross-stripe
 				result = rs.getString("pants_pattern_cross-stripe");
     			System.out.println(" pants_pattern_cross-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_vertical-stripe
 				result = rs.getString("pants_pattern_vertical-stripe");
     			System.out.println(" pants_pattern_vertical-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_number&letter
 				result = rs.getString("pants_pattern_number&letter");
     			System.out.println(" pants_pattern_number&letter: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_repeat
 				result = rs.getString("pants_pattern_repeat");
     			System.out.println(" pants_pattern_repeat: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_straight
 				result = rs.getString("pants_model_straight");
     			System.out.println(" pants_model_straight: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_tight
 				result = rs.getString("pants_model_tight");
     			System.out.println(" pants_model_tight: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_loose
 				result = rs.getString("pants_model_loose");
     			System.out.println(" pants_model_loose: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_short
 				result = rs.getString("skirt_length_short");
     			System.out.println(" skirt_length_short: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_mid
 				result = rs.getString("skirt_length_mid");
     			System.out.println(" skirt_length_mid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_long
 				result = rs.getString("skirt_length_long");
     			System.out.println(" skirt_length_long: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_model_package-hip
 				result = rs.getString("skirt_model_package-hip");
     			System.out.println(" skirt_model_package-hip: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_model_A-shape
-				result = rs.getString("skirt_model_A-shape");
+				result = rs.getString("skirt_model_A-sharp");
     			System.out.println(" skirt_model_A-shape: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_pure
 				result = rs.getString("skirt_pattern_pure");
     			System.out.println(" skirt_pattern_pure: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_grid
 				result = rs.getString("skirt_pattern_grid");
     			System.out.println(" skirt_pattern_grid: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_dot
 				result = rs.getString("skirt_pattern_dot");
     			System.out.println(" skirt_pattern_dot: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_floral
 				result = rs.getString("skirt_pattern_floral");
     			System.out.println(" skirt_pattern_floral: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_cross-stripe
 				result = rs.getString("skirt_pattern_cross-stripe");
     			System.out.println(" skirt_pattern_cross-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_vertical-stripe
 				result = rs.getString("skirt_pattern_vertical-stripe");
     			System.out.println(" skirt_pattern_vertical-stripe: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_number&letter
 				result = rs.getString("skirt_pattern_number&letter");
     			System.out.println(" skirt_pattern_number&letter: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_repeat
 				result = rs.getString("skirt_pattern_repeat");
     			System.out.println(" skirt_pattern_repeat: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,season
 				result = rs.getString("season");
     			System.out.println(" season: ");
     			System.out.println(result);
-    			outputlist = outputlist + result + "||";
+    			outputlist = outputlist + result + ",";
 				//获取服装信息,brand
 				result = rs.getString("brand");
     			System.out.println(" brand: ");

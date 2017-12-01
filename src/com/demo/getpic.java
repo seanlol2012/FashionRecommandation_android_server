@@ -51,7 +51,7 @@ public class getpic extends HttpServlet {
 		pic_name = pic_name + ".jpg";
 		
 		PrintWriter out = response.getWriter();
-		out.write("successful received");
+		System.out.println("begin to receive pic from client");
 		
 		try(ServletInputStream sis = request.getInputStream()) {
 			OutputStream os = new FileOutputStream(pic_name);
@@ -68,6 +68,9 @@ public class getpic extends HttpServlet {
 			sis.close();
 			bos.close();
 			os.close();
+			
+			System.out.println("successful received pic from client");
+			out.write("successful received");
 			
 			out.flush();
 			out.close();
