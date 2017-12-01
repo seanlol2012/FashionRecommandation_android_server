@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SomeFunction {
@@ -34,6 +35,139 @@ public class SomeFunction {
     	return result;
     }
     
+    //根据服装属性推荐相似的服装图像
+    public List<String> fromInfoFindPic(HashMap<String, String> listClothInfo)
+    {
+    	//定义一个list用于接受数据库查询到的pic_name的内容
+    	List<String> list = new ArrayList<String>();
+    	
+    	//String result = "none";
+    	ResultSet rs = null;
+    	
+    	DataBase getConn = new DataBase();
+    	Connection conn = getConn.getConnection();
+    	
+    	//处理服装长度
+    	String favor_length;
+    	if(listClothInfo.get("length_long").equals("1")) {
+    		favor_length = "length_long";
+    	} else if(listClothInfo.get("length_short").equals("1")) {
+    		favor_length = "length_short";
+    	} else {
+    		favor_length = "length_mid";
+    	}
+    	//处理袖长
+    	String favor_sleeve_length;
+    	if(listClothInfo.get("sleeve_length_sleeveless").equals("1")) {
+    		favor_sleeve_length = "sleeve_length_sleeveless";
+    	} else if(listClothInfo.get("sleeve_length_short").equals("1")) {
+    		favor_sleeve_length = "sleeve_length_short";
+    	} else {
+    		favor_sleeve_length = "sleeve_length_long";
+    	}
+    	//处理领型
+    	String favor_collar_shape;
+    	if(listClothInfo.get("collar_shape_high").equals("1")) {
+    		favor_collar_shape = "collar_shape_high";
+    	} else if(listClothInfo.get("collar_shape_lapel").equals("1")) {
+    		favor_collar_shape = "collar_shape_lapel";
+    	} else if(listClothInfo.get("collar_shape_round").equals("1")) {
+    		favor_collar_shape = "collar_shape_round";
+    	} else if(listClothInfo.get("collar_shape_bateau").equals("1")) {
+    		favor_collar_shape = "collar_shape_bateau";
+    	} else if(listClothInfo.get("collar_shape_hoodie").equals("1")) {
+    		favor_collar_shape = "collar_shape_hoodie";
+    	} else if(listClothInfo.get("collar_shape_V").equals("1")) {
+    		favor_collar_shape = "collar_shape_V";
+    	} else {
+    		favor_collar_shape = "collar_shape_stand";
+    	}
+    	//处理版型
+    	String favor_model;
+    	if(listClothInfo.get("model_loose").equals("1")) {
+    		favor_model = "model_loose";
+    	} else if(listClothInfo.get("model_tight").equals("1")) {
+    		favor_model = "model_tight";
+    	} else {
+    		favor_model = "model_straight";
+    	}
+    	//处理印花
+    	String favor_pattern;
+    	if(listClothInfo.get("pattern_grid").equals("1")) {
+    		favor_pattern = "pattern_grid";
+    	} else if(listClothInfo.get("pattern_floral").equals("1")) {
+    		favor_pattern = "pattern_floral";
+    	} else if(listClothInfo.get("pattern_number&letter").equals("1")) {
+    		favor_pattern = "pattern_number&letter";
+    	} else if(listClothInfo.get("pattern_dot").equals("1")) {
+    		favor_pattern = "pattern_dot";
+    	} else if(listClothInfo.get("pattern_grid").equals("1")) {
+    		favor_pattern = "pattern_grid";
+    	} else if(listClothInfo.get("pattern_cross-stripe").equals("1")) {
+    		favor_pattern = "pattern_cross-stripe";
+    	} else if(listClothInfo.get("pattern_vertical-stripe").equals("1")) {
+    		favor_pattern = "pattern_vertical-stripe";
+    	} else {
+    		favor_pattern = "pattern_repeat";
+    	}
+    	
+    	//获取符合要求的图像
+		String query_str;
+		query_str = "SELECT pic_name FROM clothing_attrs WHERE ";
+		query_str = query_str + favor_pattern + "=1 AND " + favor_sleeve_length + "=1 AND " + favor_model + "=1 AND " + favor_length + "=1 AND " + favor_collar_shape + "=1 LIMIT 10";
+		try {
+			PreparedStatement ps = conn.prepareStatement(query_str);
+			rs = ps.executeQuery();
+			
+			String pic_name;
+			pic_name = "none";
+			while((rs.next())&&(list.size()<=10)) {
+				pic_name = rs.getString("pic_name");
+				System.out.println(pic_name);
+				list.add(pic_name);
+			}
+			
+			//再次获取符合要求的图像
+			if(list.size()<=10) {
+				query_str = "SELECT pic_name FROM clothing_attrs WHERE ";
+    			query_str = query_str + favor_pattern + "=1 AND " + favor_sleeve_length + "=1 AND "  + favor_length + "=1 LIMIT 10";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			pic_name = "none";
+    			while((rs.next())&&(list.size()<10)) {
+    				pic_name = rs.getString("pic_name");
+    				System.out.println(pic_name);
+    				list.add(pic_name);
+    			}
+			}
+			
+			//再次获取符合要求的图像
+			if(list.size()<10) {
+				query_str = "SELECT pic_name FROM clothing_attrs WHERE ";
+    			query_str = query_str + favor_pattern + "=1 LIMIT 10";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			pic_name = "none";
+    			while((rs.next())&&(list.size()<=10)) {
+    				pic_name = rs.getString("pic_name");
+    				System.out.println(pic_name);
+    				list.add(pic_name);
+    			}
+			}
+			
+		} catch(SQLException e) {
+    		e.printStackTrace();
+    	} catch(NumberFormatException e) {
+    		e.printStackTrace();
+    	}
+    	getConn.closeConnection(conn);
+    	
+    	return list;
+    }
+    
+    //寻找对应用户ID喜欢的服装图像
     public List<String> findpic(String username)
     {
     	//定义一个list用于接受数据库查询到的pic_name的内容
@@ -299,6 +433,7 @@ public class SomeFunction {
     	return list;
     }
     
+    //根据服装图像路径返回相应的服装属性信息
     public String findinfo(String pic_name) {
     	//定义一个String用于接受数据库查询到的对应服装的内容
     	String outputlist = "";
