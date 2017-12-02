@@ -55,6 +55,7 @@ public class getpic extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String pic_name = "/home/gzx/UploadImg/";
+		List<String> pic_list = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		Date date = new Date();
 		pic_name = pic_name + sdf.format(date);
@@ -161,14 +162,15 @@ public class getpic extends HttpServlet {
 				
 				//返回根据上传图像分析检索十张相近图像路径的列表
 				SomeFunction someFunction = new SomeFunction();
-				List<String> pic_list = someFunction.fromInfoFindPic(listClothInfo);
+				pic_list = someFunction.fromInfoFindPic(listClothInfo);
 				
 				read_line = br.readLine();
 			}
 			br.close();
 			
 			System.out.println("successful received pic from client");
-			out.write("successful received");
+			System.out.println("getpic: return: " + pic_list.get(0));
+			out.write(pic_list.get(0));
 			
 			out.flush();
 			out.close();
