@@ -93,6 +93,7 @@ public class getpic extends HttpServlet {
 			String shell_path = "/home/gzx/new_net/caffe-master/analyse_upload_pic.sh";
 			try {
 				Runtime.getRuntime().exec(shell_path).waitFor();
+				System.out.println("successful run shell file");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
