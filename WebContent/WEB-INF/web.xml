@@ -34,6 +34,10 @@
     <servlet-class>com.demo.getRecommendPic</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>getFeedbackLevel</servlet-name>
+    <servlet-class>com.demo.getFeedbackLevel</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>returnClothInfo</servlet-name>
     <servlet-class>com.demo.returnClothInfo</servlet-class>
   </servlet>

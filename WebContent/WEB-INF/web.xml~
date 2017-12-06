@@ -30,6 +30,10 @@
     <servlet-class>com.demo.recommendPic</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>getRecommendPic</servlet-name>
+    <servlet-class>com.demo.getRecommendPic</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>returnClothInfo</servlet-name>
     <servlet-class>com.demo.returnClothInfo</servlet-class>
   </servlet>
