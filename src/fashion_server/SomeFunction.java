@@ -37,10 +37,11 @@ public class SomeFunction {
     
     //根据用户反馈更新数据库
     @SuppressWarnings("resource")
-	public boolean updateDB(String username, String picname, String feedbackLevel)
+	public boolean updateDB(String username, String picindex, String feedbackLevel)
     {
     	//username用于查询user_ID, picname用于查询对应的服装属性， feedbackLevel用于分类如何修改
     	boolean result = false;
+    	String picname = findpic(username).get(Integer.parseInt(picindex));
     	String user_ID;
     	HashMap<String, String> listClothInfo;
     	ResultSet rs = null;
@@ -184,15 +185,15 @@ public class SomeFunction {
                 		ps.executeUpdate();
             		}
             		//repeat
-        			ps = conn.prepareStatement("SELECT repeat FROM user_pre_pattern WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			repeat = rs.getString("repeat");
+            			repeat = rs.getString("repeat_pattern");
             			repeat_int = Float.parseFloat(repeat);
             			repeat_int = repeat_int * temp_num;
             			repeat = repeat_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
                 		ps.setString(1, repeat);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -296,15 +297,15 @@ public class SomeFunction {
                     		ps.executeUpdate();
                 		}
             		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
-            			ps = conn.prepareStatement("SELECT repeat FROM user_pre_pattern WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			repeat = rs.getString("repeat");
+                			repeat = rs.getString("repeat_pattern");
                 			repeat_int = Float.parseFloat(repeat);
                 			repeat_int = repeat_int + temp_num2;
                 			repeat = repeat_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
                     		ps.setString(1, repeat);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -348,15 +349,15 @@ public class SomeFunction {
                 		ps.executeUpdate();
             		}
             		//long
-        			ps = conn.prepareStatement("SELECT long FROM user_pre_sleeve_length WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			sleeve_long = rs.getString("long");
+            			sleeve_long = rs.getString("long_sleeve");
             			sleeve_long_int = Float.parseFloat(sleeve_long);
             			sleeve_long_int = sleeve_long_int * temp_num;
             			sleeve_long = sleeve_long_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
                 		ps.setString(1, sleeve_long);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -390,15 +391,15 @@ public class SomeFunction {
                     		ps.executeUpdate();
                 		}
             		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
-            			ps = conn.prepareStatement("SELECT long FROM user_pre_sleeve_length WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			sleeve_long = rs.getString("long");
+                			sleeve_long = rs.getString("long_sleeve");
                 			sleeve_long_int = Float.parseFloat(sleeve_long);
                 			sleeve_long_int = sleeve_long_int + temp_num2;
                 			sleeve_long = sleeve_long_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
                     		ps.setString(1, sleeve_long);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -508,15 +509,15 @@ public class SomeFunction {
     				}
             		//修改length
     				//long
-        			ps = conn.prepareStatement("SELECT long FROM user_pre_length WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			cloth_long = rs.getString("long");
+            			cloth_long = rs.getString("long_cloth");
             			cloth_long_int = Float.parseFloat(cloth_long);
             			cloth_long_int = cloth_long_int * temp_num;
             			cloth_long = cloth_long_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_length SET long=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
                 		ps.setString(1, cloth_long);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -550,15 +551,15 @@ public class SomeFunction {
                 		ps.executeUpdate();
             		}
             		if(listClothInfo.get("length_long").equals("1")) {
-            			ps = conn.prepareStatement("SELECT long FROM user_pre_length WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			cloth_long = rs.getString("long");
+                			cloth_long = rs.getString("long_cloth");
                 			cloth_long_int = Float.parseFloat(cloth_long);
                 			cloth_long_int = cloth_long_int + temp_num2;
                 			cloth_long = cloth_long_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_length SET long=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
                     		ps.setString(1, cloth_long);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -902,15 +903,15 @@ public class SomeFunction {
                     		ps.executeUpdate();
                 		}
             		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
-            			ps = conn.prepareStatement("SELECT repeat FROM user_pre_pattern WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			repeat = rs.getString("repeat");
+                			repeat = rs.getString("repeat_pattern");
                 			repeat_int = Float.parseFloat(repeat);
                 			repeat_int = repeat_int - temp_num2;
                 			repeat = repeat_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
                     		ps.setString(1, repeat);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -1015,15 +1016,15 @@ public class SomeFunction {
                 		ps.executeUpdate();
             		}
             		//repeat
-        			ps = conn.prepareStatement("SELECT repeat FROM user_pre_pattern WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			repeat = rs.getString("repeat");
+            			repeat = rs.getString("repeat_pattern");
             			repeat_int = Float.parseFloat(repeat);
             			repeat_int = repeat_int / temp_num;
             			repeat = repeat_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
                 		ps.setString(1, repeat);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -1062,15 +1063,15 @@ public class SomeFunction {
                     		ps.executeUpdate();
                 		}
             		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
-            			ps = conn.prepareStatement("SELECT long FROM user_pre_sleeve_length WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			sleeve_long = rs.getString("long");
+                			sleeve_long = rs.getString("long_sleeve");
                 			sleeve_long_int = Float.parseFloat(sleeve_long);
                 			sleeve_long_int = sleeve_long_int - temp_num2;
                 			sleeve_long = sleeve_long_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
                     		ps.setString(1, sleeve_long);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -1105,15 +1106,15 @@ public class SomeFunction {
                 		ps.executeUpdate();
             		}
             		//long
-        			ps = conn.prepareStatement("SELECT long FROM user_pre_sleeve_length WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			sleeve_long = rs.getString("long");
+            			sleeve_long = rs.getString("long_sleeve");
             			sleeve_long_int = Float.parseFloat(sleeve_long);
             			sleeve_long_int = sleeve_long_int / temp_num;
             			sleeve_long = sleeve_long_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
                 		ps.setString(1, sleeve_long);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -1214,15 +1215,15 @@ public class SomeFunction {
     				temp_num2 = 0.0333f;
             		//修改length
             		if(listClothInfo.get("length_long").equals("1")) {
-            			ps = conn.prepareStatement("SELECT long FROM user_pre_length WHERE user_ID=?");
+            			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
                 		if(rs.next()) {
-                			cloth_long = rs.getString("long");
+                			cloth_long = rs.getString("long_cloth");
                 			cloth_long_int = Float.parseFloat(cloth_long);
                 			cloth_long_int = cloth_long_int - temp_num2;
                 			cloth_long = cloth_long_int + "";
-                			ps = conn.prepareStatement("UPDATE user_pre_length SET long=? WHERE user_ID=?");
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
                     		ps.setString(1, cloth_long);
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
@@ -1257,15 +1258,15 @@ public class SomeFunction {
                 		}
             		}
             		//long
-        			ps = conn.prepareStatement("SELECT long FROM user_pre_length WHERE user_ID=?");
+        			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
             		ps.setString(1, user_ID);
             		rs = ps.executeQuery();
             		if(rs.next()) {
-            			cloth_long = rs.getString("long");
+            			cloth_long = rs.getString("long_cloth");
             			cloth_long_int = Float.parseFloat(cloth_long);
             			cloth_long_int = cloth_long_int / temp_num;
             			cloth_long = cloth_long_int + "";
-            			ps = conn.prepareStatement("UPDATE user_pre_length SET long=? WHERE user_ID=?");
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
                 		ps.setString(1, cloth_long);
                 		ps.setString(2, user_ID);
                 		ps.executeUpdate();
@@ -1684,7 +1685,7 @@ public class SomeFunction {
     				vertical_stripe_int = Float.parseFloat(vertical_stripe);
     				number_letter = rs.getString("number_letter");
     				number_letter_int = Float.parseFloat(number_letter);
-    				repeat = rs.getString("repeat");
+    				repeat = rs.getString("repeat_pattern");
     				repeat_int = Float.parseFloat(repeat);
     				
     				favor_int = pure_int;
@@ -1731,7 +1732,7 @@ public class SomeFunction {
     				sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
     				sleeve_short = rs.getString("short");
     				sleeve_short_int = Float.parseFloat(sleeve_short);
-    				sleeve_long = rs.getString("long");
+    				sleeve_long = rs.getString("long_sleeve");
     				sleeve_long_int = Float.parseFloat(sleeve_long);
     				
     				favor_sleeve_int = sleeve_sleeveless_int;
@@ -1785,7 +1786,7 @@ public class SomeFunction {
     				cloth_short_int = Float.parseFloat(cloth_short);
     				cloth_mid = rs.getString("mid");
     				cloth_mid_int = Float.parseFloat(cloth_mid);
-    				cloth_long = rs.getString("long");
+    				cloth_long = rs.getString("long_cloth");
     				cloth_long_int = Float.parseFloat(cloth_long);
     				
     				favor_length_int = cloth_short_int;
@@ -1925,258 +1926,156 @@ public class SomeFunction {
     		if(rs.next()) {
     			//获取服装信息,length_short
     			result = rs.getString("length_short");
-    			//System.out.println(" length_short: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,length_mid
 				result = rs.getString("length_mid");
-    			//System.out.println(" length_mid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,length_long
 				result = rs.getString("length_long");
-    			//System.out.println(" length_long: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_sleeveless
 				result = rs.getString("sleeve_length_sleeveless");
-    			//System.out.println(" sleeve_length_sleeveless: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_short
 				result = rs.getString("sleeve_length_short");
-    			//System.out.println(" sleeve_length_short: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,sleeve_length_long
 				result = rs.getString("sleeve_length_long");
-    			//System.out.println(" sleeve_length_long: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_stand
 				result = rs.getString("collar_shape_stand");
-    			//System.out.println(" collar_shape_stand: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_V
 				result = rs.getString("collar_shape_V");
-    			//System.out.println(" collar_shape_V: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_bateau
 				result = rs.getString("collar_shape_bateau");
-    			//System.out.println(" collar_shape_bateau: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_stand
 				result = rs.getString("collar_shape_round");
-    			//System.out.println(" collar_shape_round: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_lapel
 				result = rs.getString("collar_shape_lapel");
-    			//System.out.println(" collar_shape_lapel: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_high
 				result = rs.getString("collar_shape_high");
-    			//System.out.println(" collar_shape_high: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,collar_shape_hoodie
 				result = rs.getString("collar_shape_hoodie");
-    			//System.out.println(" collar_shape_hoodie: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,model_tight
 				result = rs.getString("model_tight");
-    			//System.out.println(" model_tight: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,model_straight
 				result = rs.getString("model_straight");
-    			//System.out.println(" model_straight: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,model_loose
 				result = rs.getString("model_loose");
-    			//System.out.println(" model_loose: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_pure
 				result = rs.getString("pattern_pure");
-    			//System.out.println(" pattern_pure: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_grid
 				result = rs.getString("pattern_grid");
-    			//System.out.println(" pattern_grid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_dot
 				result = rs.getString("pattern_dot");
-    			//System.out.println(" pattern_dot: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_floral
 				result = rs.getString("pattern_floral");
-    			//System.out.println(" pattern_floral: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_cross-stripe
 				result = rs.getString("pattern_cross-stripe");
-    			//System.out.println(" pattern_cross-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_vertical-stripe
 				result = rs.getString("pattern_vertical-stripe");
-    			//System.out.println(" pattern_vertical-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_number&letter
 				result = rs.getString("pattern_number&letter");
-    			//System.out.println(" pattern_number&letter: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pattern_repeat
 				result = rs.getString("pattern_repeat");
-    			//System.out.println(" pattern_repeat: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_short
 				result = rs.getString("pants_length_short");
-    			//System.out.println(" pants_length_short: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_mid
 				result = rs.getString("pants_length_mid");
-    			//System.out.println(" pants_length_mid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_length_long
 				result = rs.getString("pants_length_long");
-    			//System.out.println(" pants_length_long: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_pure
 				result = rs.getString("pants_pattern_pure");
-    			//System.out.println(" pants_pattern_pure: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_grid
 				result = rs.getString("pants_pattern_grid");
-    			//System.out.println(" pants_pattern_grid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_dot
 				result = rs.getString("pants_pattern_dot");
-    			//System.out.println(" pants_pattern_dot: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_floral
 				result = rs.getString("pants_pattern_floral");
-    			//System.out.println(" pants_pattern_floral: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_cross-stripe
 				result = rs.getString("pants_pattern_cross-stripe");
-    			//System.out.println(" pants_pattern_cross-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_vertical-stripe
 				result = rs.getString("pants_pattern_vertical-stripe");
-    			//System.out.println(" pants_pattern_vertical-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_number&letter
 				result = rs.getString("pants_pattern_number&letter");
-    			//System.out.println(" pants_pattern_number&letter: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_pattern_repeat
 				result = rs.getString("pants_pattern_repeat");
-    			//System.out.println(" pants_pattern_repeat: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_straight
 				result = rs.getString("pants_model_straight");
-    			//System.out.println(" pants_model_straight: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_tight
 				result = rs.getString("pants_model_tight");
-    			//System.out.println(" pants_model_tight: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,pants_model_loose
 				result = rs.getString("pants_model_loose");
-    			//System.out.println(" pants_model_loose: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_short
 				result = rs.getString("skirt_length_short");
-    			//System.out.println(" skirt_length_short: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_mid
 				result = rs.getString("skirt_length_mid");
-    			//System.out.println(" skirt_length_mid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_length_long
 				result = rs.getString("skirt_length_long");
-    			//System.out.println(" skirt_length_long: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_model_package-hip
 				result = rs.getString("skirt_model_package-hip");
-    			//System.out.println(" skirt_model_package-hip: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_model_A-shape
 				result = rs.getString("skirt_model_A-sharp");
-    			//System.out.println(" skirt_model_A-shape: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_pure
 				result = rs.getString("skirt_pattern_pure");
-    			//System.out.println(" skirt_pattern_pure: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_grid
 				result = rs.getString("skirt_pattern_grid");
-    			//System.out.println(" skirt_pattern_grid: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_dot
 				result = rs.getString("skirt_pattern_dot");
-    			//System.out.println(" skirt_pattern_dot: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_floral
 				result = rs.getString("skirt_pattern_floral");
-    			//System.out.println(" skirt_pattern_floral: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_cross-stripe
 				result = rs.getString("skirt_pattern_cross-stripe");
-    			//System.out.println(" skirt_pattern_cross-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_vertical-stripe
 				result = rs.getString("skirt_pattern_vertical-stripe");
-    			//System.out.println(" skirt_pattern_vertical-stripe: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_number&letter
 				result = rs.getString("skirt_pattern_number&letter");
-    			//System.out.println(" skirt_pattern_number&letter: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,skirt_pattern_repeat
 				result = rs.getString("skirt_pattern_repeat");
-    			//System.out.println(" skirt_pattern_repeat: ");
-    			//System.out.println(result);
     			outputlist = outputlist + result + ",";
 				//获取服装信息,season
 				result = rs.getString("season");
@@ -2198,13 +2097,13 @@ public class SomeFunction {
     	}
     	getConn.closeConnection(conn);
     	
+    	System.out.println(outputlist);
     	return outputlist;
     }
     
     //根据服装图像路径返回相应的服装属性信息，以HashMap<String, String>的形式返回
-    @SuppressWarnings("null")
-	public HashMap<String, String> findinfo_hashmap(String pic_name) {
-    	HashMap<String, String> listClothInfo = null;
+    public HashMap<String, String> findinfo_hashmap(String pic_name) {
+    	HashMap<String, String> listClothInfo = new HashMap<String, String>();
     	
     	String result = "none";
     	ResultSet rs = null;
@@ -2212,13 +2111,18 @@ public class SomeFunction {
     	DataBase getConn = new DataBase();
     	Connection conn = getConn.getConnection();
     	
+    	System.out.println("findinfo_hashmap: " + pic_name);
     	try {
-    		PreparedStatement ps = conn.prepareStatement("SELECT * FROM clothing_attrs WHERE pic_name=?");
-    		ps.setString(1, pic_name);
+    		String temp_now = "SELECT * FROM clothing_attrs WHERE pic_name = '" + pic_name + "'";
+    		System.out.println(temp_now);
+    		//PreparedStatement ps = conn.prepareStatement("SELECT * FROM clothing_attrs WHERE pic_name=?");
+    		//ps.setString(1, pic_name);
+    		PreparedStatement ps = conn.prepareStatement(temp_now);
     		rs = ps.executeQuery();
     		if(rs.next()) {
     			//获取服装信息,length_short
     			result = rs.getString("length_short");
+    			//System.out.println("length_short: "+result);
     			listClothInfo.put("length_short",result);
 				//获取服装信息,length_mid
 				result = rs.getString("length_mid");
@@ -2382,6 +2286,8 @@ public class SomeFunction {
     	} catch(SQLException e) {
     		e.printStackTrace();
     	} catch(NumberFormatException e) {
+    		e.printStackTrace();
+    	} catch(NullPointerException e) {
     		e.printStackTrace();
     	}
     	getConn.closeConnection(conn);

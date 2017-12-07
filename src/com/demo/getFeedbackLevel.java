@@ -43,19 +43,19 @@ public class getFeedbackLevel extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
-		String picname = request.getParameter("picname");
+		String picindex = request.getParameter("picindex");
 		String feedbackLevel = request.getParameter("feedbackLevel");
 		
 		PrintWriter out = response.getWriter();
 		SomeFunction someFunction = new SomeFunction();
-		boolean flag = someFunction.updateDB(username, picname, feedbackLevel);
+		boolean flag = someFunction.updateDB(username, picindex, feedbackLevel);
 		java.util.Date d=new java.util.Date();
 		if(flag) {
-			out.write("server: failed to updata database");
-			System.out.println(d.toString()+" failed to update database\n");
-		} else {
 			out.write("server: update database successfully");
 			System.out.println(d.toString()+" successful updated database\n");
+		} else {
+			out.write("server: failed to updata database");
+			System.out.println(d.toString()+" failed to update database\n");
 		}
 		out.flush();
 		out.close();
