@@ -1510,6 +1510,1481 @@ public class SomeFunction {
     	return result;
     }
     
+    //根据用户反馈更新数据库
+    @SuppressWarnings("resource")
+	public boolean updateDB2(String username, String picname, String feedbackLevel)
+    {
+    	//username用于查询user_ID, picname用于查询对应的服装属性， feedbackLevel用于分类如何修改
+    	boolean result = false;
+    	//String picname = findpic(username).get(Integer.parseInt(picindex));
+    	String user_ID;
+    	HashMap<String, String> listClothInfo;
+    	ResultSet rs = null;
+    	
+    	DataBase getConn = new DataBase();
+    	Connection conn = getConn.getConnection();
+    	
+    	try {
+    		PreparedStatement ps = conn.prepareStatement("SELECT user_ID FROM user_table WHERE name=?");
+    		ps.setString(1, username);
+    		rs = ps.executeQuery();
+    		if(rs.next()) {
+    			//获取用户ID
+    			user_ID = rs.getString("user_ID");
+    			
+    			//获取图像的属性特征
+    			listClothInfo = findinfo_hashmap(picname);
+    			
+    			//修改数据库
+    			String pure, grid, dot, floral, cross_stripe, vertical_stripe, number_letter, repeat;
+    			float pure_int, grid_int, dot_int, floral_int, cross_stripe_int, vertical_stripe_int, number_letter_int, repeat_int;
+    			String sleeve_sleeveless, sleeve_short, sleeve_long;
+    			float sleeve_sleeveless_int, sleeve_short_int, sleeve_long_int;
+    			String tight, straight, loose;
+    			float tight_int, straight_int, loose_int;
+    			String cloth_short, cloth_mid, cloth_long;
+    			float cloth_short_int, cloth_mid_int, cloth_long_int;
+    			String stand, Vshape, bateau, round, lapel, high, hoodie;
+    			float stand_int, Vshape_int, bateau_int, round_int, lapel_int, high_int, hoodie_int;
+    			
+    			//乘积比例
+    			float temp_num;
+    			//附加比例
+    			float temp_num2;
+    			if((feedbackLevel.equals("level1"))||(feedbackLevel.equals("level2"))) {
+    				//根据feedbackLevel来确定temp_num的数值
+    				if(feedbackLevel.equals("level1")) {
+    					temp_num = 0.975f;
+    					temp_num2 = 0.025f;
+    				} else {
+    					temp_num = 0.9875f;
+    					temp_num2 = 0.0125f;
+    				}
+    				//修改pattern
+    				//pure
+        			ps = conn.prepareStatement("SELECT pure FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			pure = rs.getString("pure");
+            			pure_int = Float.parseFloat(pure);
+            			pure_int = pure_int * temp_num;
+            			pure = pure_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET pure=? WHERE user_ID=?");
+                		ps.setString(1, pure);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//grid
+        			ps = conn.prepareStatement("SELECT grid FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			grid = rs.getString("grid");
+            			grid_int = Float.parseFloat(grid);
+            			grid_int = grid_int * temp_num;
+            			grid = grid_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET grid=? WHERE user_ID=?");
+                		ps.setString(1, grid);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//dot
+        			ps = conn.prepareStatement("SELECT dot FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			dot = rs.getString("dot");
+            			dot_int = Float.parseFloat(dot);
+            			dot_int = dot_int * temp_num;
+            			dot = dot_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET dot=? WHERE user_ID=?");
+                		ps.setString(1, dot);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//floral
+        			ps = conn.prepareStatement("SELECT floral FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			floral = rs.getString("floral");
+            			floral_int = Float.parseFloat(floral);
+            			floral_int = floral_int * temp_num;
+            			floral = floral_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET floral=? WHERE user_ID=?");
+                		ps.setString(1, floral);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//cross_stripe
+        			ps = conn.prepareStatement("SELECT cross_stripe FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cross_stripe = rs.getString("cross_stripe");
+            			cross_stripe_int = Float.parseFloat(cross_stripe);
+            			cross_stripe_int = cross_stripe_int * temp_num;
+            			cross_stripe = cross_stripe_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET cross_stripe=? WHERE user_ID=?");
+                		ps.setString(1, cross_stripe);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//vertical_stripe
+        			ps = conn.prepareStatement("SELECT vertical_stripe FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			vertical_stripe = rs.getString("vertical_stripe");
+            			vertical_stripe_int = Float.parseFloat(vertical_stripe);
+            			vertical_stripe_int = vertical_stripe_int * temp_num;
+            			vertical_stripe = vertical_stripe_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET vertical_stripe=? WHERE user_ID=?");
+                		ps.setString(1, vertical_stripe);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//number_letter
+        			ps = conn.prepareStatement("SELECT number_letter FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			number_letter = rs.getString("number_letter");
+            			number_letter_int = Float.parseFloat(number_letter);
+            			number_letter_int = number_letter_int * temp_num;
+            			number_letter = number_letter_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET number_letter=? WHERE user_ID=?");
+                		ps.setString(1, number_letter);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//repeat
+        			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			repeat = rs.getString("repeat_pattern");
+            			repeat_int = Float.parseFloat(repeat);
+            			repeat_int = repeat_int * temp_num;
+            			repeat = repeat_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
+                		ps.setString(1, repeat);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		if(listClothInfo.get("pattern_pure").equals("1")) {
+            			ps = conn.prepareStatement("SELECT pure FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			pure = rs.getString("pure");
+                			pure_int = Float.parseFloat(pure);
+                			pure_int = pure_int + temp_num2;
+                			pure = pure_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET pure=? WHERE user_ID=?");
+                    		ps.setString(1, pure);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_grid").equals("1")) {
+            			ps = conn.prepareStatement("SELECT grid FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			grid = rs.getString("grid");
+                			grid_int = Float.parseFloat(grid);
+                			grid_int = grid_int + temp_num2;
+                			grid = grid_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET grid=? WHERE user_ID=?");
+                    		ps.setString(1, grid);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_dot").equals("1")) {
+            			ps = conn.prepareStatement("SELECT dot FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			dot = rs.getString("dot");
+                			dot_int = Float.parseFloat(dot);
+                			dot_int = dot_int + temp_num2;
+                			dot = dot_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET dot=? WHERE user_ID=?");
+                    		ps.setString(1, dot);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_floral").equals("1")) {
+            			ps = conn.prepareStatement("SELECT floral FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			floral = rs.getString("floral");
+                			floral_int = Float.parseFloat(floral);
+                			floral_int = floral_int + temp_num2;
+                			floral = floral_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET floral=? WHERE user_ID=?");
+                    		ps.setString(1, floral);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_cross-stripe").equals("1")) {
+            			ps = conn.prepareStatement("SELECT cross_stripe FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cross_stripe = rs.getString("cross_stripe");
+                			cross_stripe_int = Float.parseFloat(cross_stripe);
+                			cross_stripe_int = cross_stripe_int + temp_num2;
+                			cross_stripe = cross_stripe_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET cross_stripe=? WHERE user_ID=?");
+                    		ps.setString(1, cross_stripe);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_vertical-stripe").equals("1")) {
+            			ps = conn.prepareStatement("SELECT vertical_stripe FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			vertical_stripe = rs.getString("vertical_stripe");
+                			vertical_stripe_int = Float.parseFloat(vertical_stripe);
+                			vertical_stripe_int = vertical_stripe_int + temp_num2;
+                			vertical_stripe = vertical_stripe_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET vertical_stripe=? WHERE user_ID=?");
+                    		ps.setString(1, vertical_stripe);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_number&letter").equals("1")) {
+            			ps = conn.prepareStatement("SELECT number_letter FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			number_letter = rs.getString("number_letter");
+                			number_letter_int = Float.parseFloat(number_letter);
+                			number_letter_int = number_letter_int + temp_num2;
+                			number_letter = number_letter_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET number_letter=? WHERE user_ID=?");
+                    		ps.setString(1, number_letter);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			repeat = rs.getString("repeat_pattern");
+                			repeat_int = Float.parseFloat(repeat);
+                			repeat_int = repeat_int + temp_num2;
+                			repeat = repeat_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
+                    		ps.setString(1, repeat);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//根据feedbackLevel来确定temp_num的数值
+    				if(feedbackLevel.equals("level1")) {
+    					temp_num = 0.9333f;
+    					temp_num2 = 0.0667f;
+    				} else {
+    					temp_num = 0.9667f;
+    					temp_num2 = 0.0333f;
+    				}
+            		//修改sleeve_length
+    				//sleeveless
+        			ps = conn.prepareStatement("SELECT sleeveless FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_sleeveless = rs.getString("sleeveless");
+            			sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
+            			sleeve_sleeveless_int = sleeve_sleeveless_int * temp_num;
+            			sleeve_sleeveless = sleeve_sleeveless_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET sleeveless=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_sleeveless);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//short
+        			ps = conn.prepareStatement("SELECT short FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_short = rs.getString("short");
+            			sleeve_short_int = Float.parseFloat(sleeve_short);
+            			sleeve_short_int = sleeve_short_int * temp_num;
+            			sleeve_short = sleeve_short_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET short=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_short);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//long
+        			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_long = rs.getString("long_sleeve");
+            			sleeve_long_int = Float.parseFloat(sleeve_long);
+            			sleeve_long_int = sleeve_long_int * temp_num;
+            			sleeve_long = sleeve_long_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_long);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		if(listClothInfo.get("sleeve_length_sleeveless").equals("1")) {
+            			ps = conn.prepareStatement("SELECT sleeveless FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_sleeveless = rs.getString("sleeveless");
+                			sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
+                			sleeve_sleeveless_int = sleeve_sleeveless_int + temp_num2;
+                			sleeve_sleeveless = sleeve_sleeveless_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET sleeveless=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_sleeveless);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("sleeve_length_short").equals("1")) {
+            			ps = conn.prepareStatement("SELECT short FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_short = rs.getString("short");
+                			sleeve_short_int = Float.parseFloat(sleeve_short);
+                			sleeve_short_int = sleeve_short_int + temp_num2;
+                			sleeve_short = sleeve_short_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET short=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_short);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_long = rs.getString("long_sleeve");
+                			sleeve_long_int = Float.parseFloat(sleeve_long);
+                			sleeve_long_int = sleeve_long_int + temp_num2;
+                			sleeve_long = sleeve_long_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_long);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//根据feedbackLevel来确定temp_num的数值
+    				if(feedbackLevel.equals("level1")) {
+    					temp_num = 0.9333f;
+    					temp_num2 = 0.0667f;
+    				} else {
+    					temp_num = 0.9667f;
+    					temp_num2 = 0.0333f;
+    				}
+            		//修改model
+    				//tight
+        			ps = conn.prepareStatement("SELECT tight FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			tight = rs.getString("tight");
+            			tight_int = Float.parseFloat(tight);
+            			tight_int = tight_int * temp_num;
+            			tight = tight_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET tight=? WHERE user_ID=?");
+                		ps.setString(1, tight);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//straight
+        			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			straight = rs.getString("straight");
+            			straight_int = Float.parseFloat(straight);
+            			straight_int = straight_int * temp_num;
+            			straight = straight_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET straight=? WHERE user_ID=?");
+                		ps.setString(1, straight);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//loose
+        			ps = conn.prepareStatement("SELECT loose FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			loose = rs.getString("loose");
+            			loose_int = Float.parseFloat(loose);
+            			loose_int = loose_int * temp_num;
+            			loose = loose_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET loose=? WHERE user_ID=?");
+                		ps.setString(1, loose);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		if(listClothInfo.get("model_loose").equals("1")) {
+            			ps = conn.prepareStatement("SELECT loose FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			loose = rs.getString("loose");
+                			loose_int = Float.parseFloat(loose);
+                			loose_int = loose_int + temp_num2;
+                			loose = loose_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET loose=? WHERE user_ID=?");
+                    		ps.setString(1, loose);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("model_tight").equals("1")) {
+            			ps = conn.prepareStatement("SELECT tight FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			tight = rs.getString("tight");
+                			tight_int = Float.parseFloat(tight);
+                			tight_int = tight_int + temp_num2;
+                			tight = tight_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET tight=? WHERE user_ID=?");
+                    		ps.setString(1, tight);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			straight = rs.getString("straight");
+                			straight_int = Float.parseFloat(straight);
+                			straight_int = straight_int + temp_num2;
+                			straight = straight_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET straight=? WHERE user_ID=?");
+                    		ps.setString(1, straight);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//根据feedbackLevel来确定temp_num的数值
+    				if(feedbackLevel.equals("level1")) {
+    					temp_num = 0.9333f;
+    					temp_num2 = 0.0667f;
+    				} else {
+    					temp_num = 0.9667f;
+    					temp_num2 = 0.0333f;
+    				}
+            		//修改length
+    				//long
+        			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_long = rs.getString("long_cloth");
+            			cloth_long_int = Float.parseFloat(cloth_long);
+            			cloth_long_int = cloth_long_int * temp_num;
+            			cloth_long = cloth_long_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
+                		ps.setString(1, cloth_long);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//mid
+        			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_mid = rs.getString("mid");
+            			cloth_mid_int = Float.parseFloat(cloth_mid);
+            			cloth_mid_int = cloth_mid_int * temp_num;
+            			cloth_mid = cloth_mid_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET mid=? WHERE user_ID=?");
+                		ps.setString(1, cloth_mid);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//short
+        			ps = conn.prepareStatement("SELECT short FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_short = rs.getString("short");
+            			cloth_short_int = Float.parseFloat(cloth_short);
+            			cloth_short_int = cloth_short_int * temp_num;
+            			cloth_short = cloth_short_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET short=? WHERE user_ID=?");
+                		ps.setString(1, cloth_short);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		if(listClothInfo.get("length_long").equals("1")) {
+            			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_long = rs.getString("long_cloth");
+                			cloth_long_int = Float.parseFloat(cloth_long);
+                			cloth_long_int = cloth_long_int + temp_num2;
+                			cloth_long = cloth_long_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_long);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("length_short").equals("1")) {
+            			ps = conn.prepareStatement("SELECT short FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_short = rs.getString("short");
+                			cloth_short_int = Float.parseFloat(cloth_short);
+                			cloth_short_int = cloth_short_int + temp_num2;
+                			cloth_short = cloth_short_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET short=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_short);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_mid = rs.getString("mid");
+                			cloth_mid_int = Float.parseFloat(cloth_mid);
+                			cloth_mid_int = cloth_mid_int + temp_num2;
+                			cloth_mid = cloth_mid_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET mid=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_mid);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//根据feedbackLevel来确定temp_num的数值
+    				if(feedbackLevel.equals("level1")) {
+    					temp_num = 0.9714f;
+    					temp_num2 = 0.0286f;
+    				} else {
+    					temp_num = 0.9857f;
+    					temp_num2 = 0.0143f;
+    				}
+    				//修改collar
+    				//stand
+        			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			stand = rs.getString("stand");
+            			stand_int = Float.parseFloat(stand);
+            			stand_int = stand_int * temp_num;
+            			stand = stand_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET stand=? WHERE user_ID=?");
+                		ps.setString(1, stand);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//Vshape
+        			ps = conn.prepareStatement("SELECT Vshape FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			Vshape = rs.getString("Vshape");
+            			Vshape_int = Float.parseFloat(Vshape);
+            			Vshape_int = Vshape_int * temp_num;
+            			Vshape = Vshape_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET Vshape=? WHERE user_ID=?");
+                		ps.setString(1, Vshape);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//bateau
+        			ps = conn.prepareStatement("SELECT bateau FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			bateau = rs.getString("bateau");
+            			bateau_int = Float.parseFloat(bateau);
+            			bateau_int = bateau_int * temp_num;
+            			bateau = bateau_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET bateau=? WHERE user_ID=?");
+                		ps.setString(1, bateau);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//round
+        			ps = conn.prepareStatement("SELECT round FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			round = rs.getString("round");
+            			round_int = Float.parseFloat(round);
+            			round_int = round_int * temp_num;
+            			round = round_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET round=? WHERE user_ID=?");
+                		ps.setString(1, round);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//lapel
+        			ps = conn.prepareStatement("SELECT lapel FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			lapel = rs.getString("lapel");
+            			lapel_int = Float.parseFloat(lapel);
+            			lapel_int = lapel_int * temp_num;
+            			lapel = lapel_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET lapel=? WHERE user_ID=?");
+                		ps.setString(1, lapel);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//high
+        			ps = conn.prepareStatement("SELECT high FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			high = rs.getString("high");
+            			high_int = Float.parseFloat(high);
+            			high_int = high_int * temp_num;
+            			high = high_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET high=? WHERE user_ID=?");
+                		ps.setString(1, high);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//hoodie
+        			ps = conn.prepareStatement("SELECT hoodie FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			hoodie = rs.getString("hoodie");
+            			hoodie_int = Float.parseFloat(hoodie);
+            			hoodie_int = hoodie_int * temp_num;
+            			hoodie = hoodie_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET hoodie=? WHERE user_ID=?");
+                		ps.setString(1, hoodie);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		if(listClothInfo.get("collar_shape_high").equals("1")) {
+            			ps = conn.prepareStatement("SELECT high FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			high = rs.getString("high");
+                			high_int = Float.parseFloat(high);
+                			high_int = high_int + temp_num2;
+                			high = high_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET high=? WHERE user_ID=?");
+                    		ps.setString(1, high);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_lapel").equals("1")) {
+            			ps = conn.prepareStatement("SELECT lapel FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			lapel = rs.getString("lapel");
+                			lapel_int = Float.parseFloat(lapel);
+                			lapel_int = lapel_int + temp_num2;
+                			lapel = lapel_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET lapel=? WHERE user_ID=?");
+                    		ps.setString(1, lapel);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_round").equals("1")) {
+            			ps = conn.prepareStatement("SELECT round FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			round = rs.getString("round");
+                			round_int = Float.parseFloat(round);
+                			round_int = round_int + temp_num2;
+                			round = round_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET round=? WHERE user_ID=?");
+                    		ps.setString(1, round);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_bateau").equals("1")) {
+            			ps = conn.prepareStatement("SELECT bateau FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			bateau = rs.getString("bateau");
+                			bateau_int = Float.parseFloat(bateau);
+                			bateau_int = bateau_int + temp_num2;
+                			bateau = bateau_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET bateau=? WHERE user_ID=?");
+                    		ps.setString(1, bateau);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_hoodie").equals("1")) {
+            			ps = conn.prepareStatement("SELECT hoodie FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			hoodie = rs.getString("hoodie");
+                			hoodie_int = Float.parseFloat(hoodie);
+                			hoodie_int = hoodie_int + temp_num2;
+                			hoodie = hoodie_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET hoodie=? WHERE user_ID=?");
+                    		ps.setString(1, hoodie);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_V").equals("1")) {
+            			ps = conn.prepareStatement("SELECT Vshape FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			Vshape = rs.getString("Vshape");
+                			Vshape_int = Float.parseFloat(Vshape);
+                			Vshape_int = Vshape_int + temp_num2;
+                			Vshape = Vshape_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET Vshape=? WHERE user_ID=?");
+                    		ps.setString(1, Vshape);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			stand = rs.getString("stand");
+                			stand_int = Float.parseFloat(stand);
+                			stand_int = stand_int + temp_num2;
+                			stand = stand_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET stand=? WHERE user_ID=?");
+                    		ps.setString(1, stand);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+    			} else if(feedbackLevel.equals("level4")) {
+    				//根据feedbackLevel来确定temp_num的数值
+    				temp_num = 0.9875f;
+    				temp_num2 = 0.0125f;
+    				//修改pattern
+            		if(listClothInfo.get("pattern_pure").equals("1")) {
+            			ps = conn.prepareStatement("SELECT pure FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			pure = rs.getString("pure");
+                			pure_int = Float.parseFloat(pure);
+                			pure_int = pure_int - temp_num2;
+                			pure = pure_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET pure=? WHERE user_ID=?");
+                    		ps.setString(1, pure);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_grid").equals("1")) {
+            			ps = conn.prepareStatement("SELECT grid FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			grid = rs.getString("grid");
+                			grid_int = Float.parseFloat(grid);
+                			grid_int = grid_int - temp_num2;
+                			grid = grid_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET grid=? WHERE user_ID=?");
+                    		ps.setString(1, grid);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_dot").equals("1")) {
+            			ps = conn.prepareStatement("SELECT dot FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			dot = rs.getString("dot");
+                			dot_int = Float.parseFloat(dot);
+                			dot_int = dot_int - temp_num2;
+                			dot = dot_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET dot=? WHERE user_ID=?");
+                    		ps.setString(1, dot);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_floral").equals("1")) {
+            			ps = conn.prepareStatement("SELECT floral FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			floral = rs.getString("floral");
+                			floral_int = Float.parseFloat(floral);
+                			floral_int = floral_int - temp_num2;
+                			floral = floral_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET floral=? WHERE user_ID=?");
+                    		ps.setString(1, floral);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_cross-stripe").equals("1")) {
+            			ps = conn.prepareStatement("SELECT cross_stripe FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cross_stripe = rs.getString("cross_stripe");
+                			cross_stripe_int = Float.parseFloat(cross_stripe);
+                			cross_stripe_int = cross_stripe_int - temp_num2;
+                			cross_stripe = cross_stripe_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET cross_stripe=? WHERE user_ID=?");
+                    		ps.setString(1, cross_stripe);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_vertical-stripe").equals("1")) {
+            			ps = conn.prepareStatement("SELECT vertical_stripe FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			vertical_stripe = rs.getString("vertical_stripe");
+                			vertical_stripe_int = Float.parseFloat(vertical_stripe);
+                			vertical_stripe_int = vertical_stripe_int - temp_num2;
+                			vertical_stripe = vertical_stripe_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET vertical_stripe=? WHERE user_ID=?");
+                    		ps.setString(1, vertical_stripe);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_number&letter").equals("1")) {
+            			ps = conn.prepareStatement("SELECT number_letter FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			number_letter = rs.getString("number_letter");
+                			number_letter_int = Float.parseFloat(number_letter);
+                			number_letter_int = number_letter_int - temp_num2;
+                			number_letter = number_letter_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET number_letter=? WHERE user_ID=?");
+                    		ps.setString(1, number_letter);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			repeat = rs.getString("repeat_pattern");
+                			repeat_int = Float.parseFloat(repeat);
+                			repeat_int = repeat_int - temp_num2;
+                			repeat = repeat_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
+                    		ps.setString(1, repeat);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//pure
+        			ps = conn.prepareStatement("SELECT pure FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			pure = rs.getString("pure");
+            			pure_int = Float.parseFloat(pure);
+            			pure_int = pure_int / temp_num;
+            			pure = pure_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET pure=? WHERE user_ID=?");
+                		ps.setString(1, pure);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//grid
+        			ps = conn.prepareStatement("SELECT grid FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			grid = rs.getString("grid");
+            			grid_int = Float.parseFloat(grid);
+            			grid_int = grid_int / temp_num;
+            			grid = grid_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET grid=? WHERE user_ID=?");
+                		ps.setString(1, grid);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//dot
+        			ps = conn.prepareStatement("SELECT dot FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			dot = rs.getString("dot");
+            			dot_int = Float.parseFloat(dot);
+            			dot_int = dot_int / temp_num;
+            			dot = dot_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET dot=? WHERE user_ID=?");
+                		ps.setString(1, dot);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//floral
+        			ps = conn.prepareStatement("SELECT floral FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			floral = rs.getString("floral");
+            			floral_int = Float.parseFloat(floral);
+            			floral_int = floral_int / temp_num;
+            			floral = floral_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET floral=? WHERE user_ID=?");
+                		ps.setString(1, floral);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//cross_stripe
+        			ps = conn.prepareStatement("SELECT cross_stripe FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cross_stripe = rs.getString("cross_stripe");
+            			cross_stripe_int = Float.parseFloat(cross_stripe);
+            			cross_stripe_int = cross_stripe_int / temp_num;
+            			cross_stripe = cross_stripe_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET cross_stripe=? WHERE user_ID=?");
+                		ps.setString(1, cross_stripe);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//vertical_stripe
+        			ps = conn.prepareStatement("SELECT vertical_stripe FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			vertical_stripe = rs.getString("vertical_stripe");
+            			vertical_stripe_int = Float.parseFloat(vertical_stripe);
+            			vertical_stripe_int = vertical_stripe_int / temp_num;
+            			vertical_stripe = vertical_stripe_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET vertical_stripe=? WHERE user_ID=?");
+                		ps.setString(1, vertical_stripe);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//number_letter
+        			ps = conn.prepareStatement("SELECT number_letter FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			number_letter = rs.getString("number_letter");
+            			number_letter_int = Float.parseFloat(number_letter);
+            			number_letter_int = number_letter_int / temp_num;
+            			number_letter = number_letter_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET number_letter=? WHERE user_ID=?");
+                		ps.setString(1, number_letter);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//repeat
+        			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			repeat = rs.getString("repeat_pattern");
+            			repeat_int = Float.parseFloat(repeat);
+            			repeat_int = repeat_int / temp_num;
+            			repeat = repeat_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_pattern SET repeat_pattern=? WHERE user_ID=?");
+                		ps.setString(1, repeat);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		
+            		//根据feedbackLevel来确定temp_num的数值
+    				temp_num = 0.9667f;
+    				temp_num2 = 0.0333f;
+            		//修改sleeve_length
+            		if(listClothInfo.get("sleeve_length_sleeveless").equals("1")) {
+            			ps = conn.prepareStatement("SELECT sleeveless FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_sleeveless = rs.getString("sleeveless");
+                			sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
+                			sleeve_sleeveless_int = sleeve_sleeveless_int - temp_num2;
+                			sleeve_sleeveless = sleeve_sleeveless_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET sleeveless=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_sleeveless);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("sleeve_length_short").equals("1")) {
+            			ps = conn.prepareStatement("SELECT short FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_short = rs.getString("short");
+                			sleeve_short_int = Float.parseFloat(sleeve_short);
+                			sleeve_short_int = sleeve_short_int - temp_num2;
+                			sleeve_short = sleeve_short_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET short=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_short);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			sleeve_long = rs.getString("long_sleeve");
+                			sleeve_long_int = Float.parseFloat(sleeve_long);
+                			sleeve_long_int = sleeve_long_int - temp_num2;
+                			sleeve_long = sleeve_long_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
+                    		ps.setString(1, sleeve_long);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//sleeveless
+        			ps = conn.prepareStatement("SELECT sleeveless FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_sleeveless = rs.getString("sleeveless");
+            			sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
+            			sleeve_sleeveless_int = sleeve_sleeveless_int / temp_num;
+            			sleeve_sleeveless = sleeve_sleeveless_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET sleeveless=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_sleeveless);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//short
+        			ps = conn.prepareStatement("SELECT short FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_short = rs.getString("short");
+            			sleeve_short_int = Float.parseFloat(sleeve_short);
+            			sleeve_short_int = sleeve_short_int / temp_num;
+            			sleeve_short = sleeve_short_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET short=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_short);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//long
+        			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			sleeve_long = rs.getString("long_sleeve");
+            			sleeve_long_int = Float.parseFloat(sleeve_long);
+            			sleeve_long_int = sleeve_long_int / temp_num;
+            			sleeve_long = sleeve_long_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_sleeve_length SET long_sleeve=? WHERE user_ID=?");
+                		ps.setString(1, sleeve_long);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		
+            		//根据feedbackLevel来确定temp_num的数值
+    				temp_num = 0.9667f;
+    				temp_num2 = 0.0333f;
+            		//修改model
+            		if(listClothInfo.get("model_loose").equals("1")) {
+            			ps = conn.prepareStatement("SELECT loose FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			loose = rs.getString("loose");
+                			loose_int = Float.parseFloat(loose);
+                			loose_int = loose_int - temp_num2;
+                			loose = loose_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET loose=? WHERE user_ID=?");
+                    		ps.setString(1, loose);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("model_tight").equals("1")) {
+            			ps = conn.prepareStatement("SELECT tight FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			tight = rs.getString("tight");
+                			tight_int = Float.parseFloat(tight);
+                			tight_int = tight_int - temp_num2;
+                			tight = tight_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET tight=? WHERE user_ID=?");
+                    		ps.setString(1, tight);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			straight = rs.getString("straight");
+                			straight_int = Float.parseFloat(straight);
+                			straight_int = straight_int - temp_num2;
+                			straight = straight_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_model SET straight=? WHERE user_ID=?");
+                    		ps.setString(1, straight);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//tight
+        			ps = conn.prepareStatement("SELECT tight FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			tight = rs.getString("tight");
+            			tight_int = Float.parseFloat(tight);
+            			tight_int = tight_int / temp_num;
+            			tight = tight_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET tight=? WHERE user_ID=?");
+                		ps.setString(1, tight);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//straight
+        			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			straight = rs.getString("straight");
+            			straight_int = Float.parseFloat(straight);
+            			straight_int = straight_int / temp_num;
+            			straight = straight_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET straight=? WHERE user_ID=?");
+                		ps.setString(1, straight);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//loose
+        			ps = conn.prepareStatement("SELECT loose FROM user_pre_model WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			loose = rs.getString("loose");
+            			loose_int = Float.parseFloat(loose);
+            			loose_int = loose_int / temp_num;
+            			loose = loose_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_model SET loose=? WHERE user_ID=?");
+                		ps.setString(1, loose);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		
+            		//根据feedbackLevel来确定temp_num的数值
+    				temp_num = 0.9667f;
+    				temp_num2 = 0.0333f;
+            		//修改length
+            		if(listClothInfo.get("length_long").equals("1")) {
+            			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_long = rs.getString("long_cloth");
+                			cloth_long_int = Float.parseFloat(cloth_long);
+                			cloth_long_int = cloth_long_int - temp_num2;
+                			cloth_long = cloth_long_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_long);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("length_short").equals("1")) {
+            			ps = conn.prepareStatement("SELECT short FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_short = rs.getString("short");
+                			cloth_short_int = Float.parseFloat(cloth_short);
+                			cloth_short_int = cloth_short_int - temp_num2;
+                			cloth_short = cloth_short_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET short=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_short);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			cloth_mid = rs.getString("mid");
+                			cloth_mid_int = Float.parseFloat(cloth_mid);
+                			cloth_mid_int = cloth_mid_int - temp_num2;
+                			cloth_mid = cloth_mid_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_length SET mid=? WHERE user_ID=?");
+                    		ps.setString(1, cloth_mid);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//long
+        			ps = conn.prepareStatement("SELECT long_cloth FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_long = rs.getString("long_cloth");
+            			cloth_long_int = Float.parseFloat(cloth_long);
+            			cloth_long_int = cloth_long_int / temp_num;
+            			cloth_long = cloth_long_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET long_cloth=? WHERE user_ID=?");
+                		ps.setString(1, cloth_long);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//mid
+        			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_mid = rs.getString("mid");
+            			cloth_mid_int = Float.parseFloat(cloth_mid);
+            			cloth_mid_int = cloth_mid_int / temp_num;
+            			cloth_mid = cloth_mid_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET mid=? WHERE user_ID=?");
+                		ps.setString(1, cloth_mid);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//short
+        			ps = conn.prepareStatement("SELECT short FROM user_pre_length WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			cloth_short = rs.getString("short");
+            			cloth_short_int = Float.parseFloat(cloth_short);
+            			cloth_short_int = cloth_short_int / temp_num;
+            			cloth_short = cloth_short_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_length SET short=? WHERE user_ID=?");
+                		ps.setString(1, cloth_short);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		
+            		//根据feedbackLevel来确定temp_num的数值
+    				temp_num = 0.9857f;
+    				temp_num2 = 0.0143f;
+    				//修改collar
+            		if(listClothInfo.get("collar_shape_high").equals("1")) {
+            			ps = conn.prepareStatement("SELECT high FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			high = rs.getString("high");
+                			high_int = Float.parseFloat(high);
+                			high_int = high_int - temp_num2;
+                			high = high_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET high=? WHERE user_ID=?");
+                    		ps.setString(1, high);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_lapel").equals("1")) {
+            			ps = conn.prepareStatement("SELECT lapel FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			lapel = rs.getString("lapel");
+                			lapel_int = Float.parseFloat(lapel);
+                			lapel_int = lapel_int - temp_num2;
+                			lapel = lapel_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET lapel=? WHERE user_ID=?");
+                    		ps.setString(1, lapel);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_round").equals("1")) {
+            			ps = conn.prepareStatement("SELECT round FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			round = rs.getString("round");
+                			round_int = Float.parseFloat(round);
+                			round_int = round_int - temp_num2;
+                			round = round_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET round=? WHERE user_ID=?");
+                    		ps.setString(1, round);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_bateau").equals("1")) {
+            			ps = conn.prepareStatement("SELECT bateau FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			bateau = rs.getString("bateau");
+                			bateau_int = Float.parseFloat(bateau);
+                			bateau_int = bateau_int - temp_num2;
+                			bateau = bateau_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET bateau=? WHERE user_ID=?");
+                    		ps.setString(1, bateau);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_hoodie").equals("1")) {
+            			ps = conn.prepareStatement("SELECT hoodie FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			hoodie = rs.getString("hoodie");
+                			hoodie_int = Float.parseFloat(hoodie);
+                			hoodie_int = hoodie_int - temp_num2;
+                			hoodie = hoodie_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET hoodie=? WHERE user_ID=?");
+                    		ps.setString(1, hoodie);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_V").equals("1")) {
+            			ps = conn.prepareStatement("SELECT Vshape FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			Vshape = rs.getString("Vshape");
+                			Vshape_int = Float.parseFloat(Vshape);
+                			Vshape_int = Vshape_int - temp_num2;
+                			Vshape = Vshape_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET Vshape=? WHERE user_ID=?");
+                    		ps.setString(1, Vshape);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
+                		ps.setString(1, user_ID);
+                		rs = ps.executeQuery();
+                		if(rs.next()) {
+                			stand = rs.getString("stand");
+                			stand_int = Float.parseFloat(stand);
+                			stand_int = stand_int - temp_num2;
+                			stand = stand_int + "";
+                			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET stand=? WHERE user_ID=?");
+                    		ps.setString(1, stand);
+                    		ps.setString(2, user_ID);
+                    		ps.executeUpdate();
+                		}
+            		}
+            		//stand
+        			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			stand = rs.getString("stand");
+            			stand_int = Float.parseFloat(stand);
+            			stand_int = stand_int / temp_num;
+            			stand = stand_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET stand=? WHERE user_ID=?");
+                		ps.setString(1, stand);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//Vshape
+        			ps = conn.prepareStatement("SELECT Vshape FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			Vshape = rs.getString("Vshape");
+            			Vshape_int = Float.parseFloat(Vshape);
+            			Vshape_int = Vshape_int / temp_num;
+            			Vshape = Vshape_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET Vshape=? WHERE user_ID=?");
+                		ps.setString(1, Vshape);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//bateau
+        			ps = conn.prepareStatement("SELECT bateau FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			bateau = rs.getString("bateau");
+            			bateau_int = Float.parseFloat(bateau);
+            			bateau_int = bateau_int / temp_num;
+            			bateau = bateau_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET bateau=? WHERE user_ID=?");
+                		ps.setString(1, bateau);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//round
+        			ps = conn.prepareStatement("SELECT round FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			round = rs.getString("round");
+            			round_int = Float.parseFloat(round);
+            			round_int = round_int / temp_num;
+            			round = round_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET round=? WHERE user_ID=?");
+                		ps.setString(1, round);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//lapel
+        			ps = conn.prepareStatement("SELECT lapel FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			lapel = rs.getString("lapel");
+            			lapel_int = Float.parseFloat(lapel);
+            			lapel_int = lapel_int / temp_num;
+            			lapel = lapel_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET lapel=? WHERE user_ID=?");
+                		ps.setString(1, lapel);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//high
+        			ps = conn.prepareStatement("SELECT high FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			high = rs.getString("high");
+            			high_int = Float.parseFloat(high);
+            			high_int = high_int / temp_num;
+            			high = high_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET high=? WHERE user_ID=?");
+                		ps.setString(1, high);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+            		//hoodie
+        			ps = conn.prepareStatement("SELECT hoodie FROM user_pre_collar_shape WHERE user_ID=?");
+            		ps.setString(1, user_ID);
+            		rs = ps.executeQuery();
+            		if(rs.next()) {
+            			hoodie = rs.getString("hoodie");
+            			hoodie_int = Float.parseFloat(hoodie);
+            			hoodie_int = hoodie_int / temp_num;
+            			hoodie = hoodie_int + "";
+            			ps = conn.prepareStatement("UPDATE user_pre_collar_shape SET hoodie=? WHERE user_ID=?");
+                		ps.setString(1, hoodie);
+                		ps.setString(2, user_ID);
+                		ps.executeUpdate();
+            		}
+    			}
+    			result = true;
+    		}
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	return result;
+    }
+    
     //根据服装属性推荐相似的服装图像
     public List<String> fromInfoFindPic(HashMap<String, String> listClothInfo)
     {
@@ -1908,6 +3383,79 @@ public class SomeFunction {
     	return list;
     }
     
+    //寻找对应属性的服装图像(尚未对特征进行排列组合)
+    public List<String> findpicFromValue(String length_value, String sleeve_value, String collar_value, String model_value, String pattern_value)
+    {
+    	//定义flag，用于判断上传的值是否为空
+    	int flag1, flag2, flag3, flag4, flag5;
+    	if(length_value.equals("null")) {
+    		flag1 = 0;
+    	} else {
+    		flag1 = 1;
+    	}
+    	if(sleeve_value.equals("null")) {
+    		flag2 = 0;
+    	} else {
+    		flag2 = 1;
+    	}
+    	if(collar_value.equals("null")) {
+    		flag3 = 0;
+    	} else {
+    		flag3 = 1;
+    	}
+    	if(model_value.equals("null")) {
+    		flag4 = 0;
+    	} else {
+    		flag4 = 1;
+    	}
+    	if(pattern_value.equals("null")) {
+    		flag5 = 0;
+    	} else {
+    		flag5 = 1;
+    	}
+    	
+    	//定义一个list用于接受数据库查询到的pic_name的内容
+    	List<String> list = new ArrayList<String>();
+    	
+    	ResultSet rs = null;
+    	
+    	DataBase getConn = new DataBase();
+    	Connection conn = getConn.getConnection();
+    	
+    	try {
+    		String query_str, pic_name;
+    		pic_name = "none";
+			query_str = "SELECT pic_name FROM clothing_attrs WHERE ";
+			if(flag1 == 1) {
+				query_str = query_str + length_value + "=1 ";
+				//query_str = query_str + "LIMIT 10";
+			} else if(flag2 == 1) {
+				query_str = query_str + sleeve_value + "=1 ";
+			} else if(flag3 == 1) {
+				query_str = query_str + collar_value + "=1 ";
+			} else if(flag4 == 1) {
+				query_str = query_str + model_value + "=1 ";
+			} else if(flag5 == 1) {
+				query_str = query_str + pattern_value + "=1 ";
+			}
+			query_str = query_str + "LIMIT 10";
+			//query_str = query_str + length_value + "=1 AND "+ sleeve_value + "=1 AND "+ collar_value + "=1 AND "+ model_value + "=1 AND "+ pattern_value + "=1 LIMIT 10";
+    		PreparedStatement ps = conn.prepareStatement(query_str);
+    		rs = ps.executeQuery();
+    		while((rs.next())&&(list.size()<=10)) {
+    			//获取图像名称
+    			pic_name = rs.getString("pic_name");
+    			System.out.println(pic_name);
+    			list.add(pic_name);
+    		}
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return list;
+    }
+ 
+    //获取对应图像的服装特征
     //根据服装图像路径返回相应的服装属性信息
     public String findinfo(String pic_name) {
     	//定义一个String用于接受数据库查询到的对应服装的内容
@@ -2100,6 +3648,7 @@ public class SomeFunction {
     	System.out.println(outputlist);
     	return outputlist;
     }
+    
     
     //根据服装图像路径返回相应的服装属性信息，以HashMap<String, String>的形式返回
     public HashMap<String, String> findinfo_hashmap(String pic_name) {
@@ -2295,6 +3844,7 @@ public class SomeFunction {
     	return listClothInfo;
     }
     
+    
     public boolean register(String username, String password, String sexName)
     {
     	boolean result = false;
@@ -2321,6 +3871,7 @@ public class SomeFunction {
     	return result;
     }
     
+
     public boolean checkname(String username)
     {
     	boolean result = false;
