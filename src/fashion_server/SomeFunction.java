@@ -296,7 +296,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -390,7 +390,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -484,7 +484,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -578,7 +578,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -784,7 +784,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -902,7 +902,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1062,7 +1062,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1152,7 +1152,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1242,7 +1242,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1388,7 +1388,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1771,7 +1771,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1865,7 +1865,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -1959,7 +1959,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2053,7 +2053,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2259,7 +2259,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2377,7 +2377,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("pattern_repeat").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT repeat_pattern FROM user_pre_pattern WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2537,7 +2537,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("sleeve_length_long").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT long_sleeve FROM user_pre_sleeve_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2627,7 +2627,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("model_straight").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT straight FROM user_pre_model WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2717,7 +2717,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("length_mid").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT mid FROM user_pre_length WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -2863,7 +2863,7 @@ public class SomeFunction {
                     		ps.setString(2, user_ID);
                     		ps.executeUpdate();
                 		}
-            		} else if(listClothInfo.get("collar_shape_stand").equals("1")) {
+            		} else {
             			ps = conn.prepareStatement("SELECT stand FROM user_pre_collar_shape WHERE user_ID=?");
                 		ps.setString(1, user_ID);
                 		rs = ps.executeQuery();
@@ -3370,6 +3370,1591 @@ public class SomeFunction {
         				list.add(pic_name);
         			}
     			}
+    		} else {
+    			result = "none";
+    		}
+    	} catch(SQLException e) {
+    		e.printStackTrace();
+    	} catch(NumberFormatException e) {
+    		e.printStackTrace();
+    	}
+    	getConn.closeConnection(conn);
+    	
+    	return list;
+    }
+    
+  //寻找对应用户ID喜欢的服装图像
+    public List<String> findpic_newTable(String username)
+    {
+    	//定义一个list用于接受数据库查询到的pic_name的内容
+    	List<String> list = new ArrayList<String>();
+    	
+    	String result = "none";
+    	ResultSet rs = null;
+    	
+    	DataBase getConn = new DataBase();
+    	Connection conn = getConn.getConnection();
+    	
+    	try {
+    		PreparedStatement ps = conn.prepareStatement("SELECT * FROM user_table WHERE name=?");
+    		ps.setString(1, username);
+    		rs = ps.executeQuery();
+    		if(rs.next()) {
+    			//获取用户ID
+    			result = rs.getString("user_ID");
+    			
+    			//获取用户最喜欢的样式
+    			ps = conn.prepareStatement("SELECT * FROM user_pre_pattern WHERE user_ID=?");
+    			ps.setString(1, result);
+    			rs = ps.executeQuery();
+    			
+    			String pure, grid, dot, floral, cross_stripe, vertical_stripe, number_letter, repeat, favor_pattern;
+    			favor_pattern = "pattern_pure";
+    			float pure_int, grid_int, dot_int, floral_int, cross_stripe_int, vertical_stripe_int, number_letter_int, repeat_int, favor_int;
+    			if(rs.next()) {
+    				pure = rs.getString("pure");
+    				pure_int = Float.parseFloat(pure);
+    				grid = rs.getString("grid");
+    				grid_int = Float.parseFloat(grid);
+    				dot = rs.getString("dot");
+    				dot_int = Float.parseFloat(dot);
+    				floral = rs.getString("floral");
+    				floral_int = Float.parseFloat(floral);
+    				cross_stripe = rs.getString("cross_stripe");
+    				cross_stripe_int = Float.parseFloat(cross_stripe);
+    				vertical_stripe = rs.getString("vertical_stripe");
+    				vertical_stripe_int = Float.parseFloat(vertical_stripe);
+    				number_letter = rs.getString("number_letter");
+    				number_letter_int = Float.parseFloat(number_letter);
+    				repeat = rs.getString("repeat_pattern");
+    				repeat_int = Float.parseFloat(repeat);
+    				
+    				favor_int = pure_int;
+    				if(grid_int > favor_int) {
+    					favor_pattern = "pattern_grid";
+    					favor_int = grid_int;
+    				}
+    				if(dot_int > favor_int) {
+    					favor_pattern = "pattern_dot";
+    					favor_int = dot_int;
+    				}
+    				if(floral_int > favor_int) {
+    					favor_pattern = "pattern_floral";
+    					favor_int = floral_int;
+    				}
+    				if(cross_stripe_int > favor_int) {
+    					favor_pattern = "pattern_cross-stripe";
+    					favor_int = cross_stripe_int;
+    				}
+    				if(vertical_stripe_int > favor_int) {
+    					favor_pattern = "pattern_vertical-stripe";
+    					favor_int = vertical_stripe_int;
+    				}
+    				if(number_letter_int > favor_int) {
+    					favor_pattern = "pattern_number&letter";
+    					favor_int = number_letter_int;
+    				}
+    				if(repeat_int > favor_int) {
+    					favor_pattern = "pattern_repeat";
+    					favor_int = repeat_int;
+    				}
+    			}
+    			
+    			//获取用户最喜欢的袖子长短
+    			ps = conn.prepareStatement("SELECT * FROM user_pre_sleeve_length WHERE user_ID=?");
+    			ps.setString(1, result);
+    			rs = ps.executeQuery();
+    			
+    			String sleeve_sleeveless, sleeve_short, sleeve_long, favor_sleeve;
+    			favor_sleeve = "sleeve_length_sleeveless";
+    			float sleeve_sleeveless_int, sleeve_short_int, sleeve_long_int, favor_sleeve_int;
+    			if(rs.next()) {
+    				sleeve_sleeveless = rs.getString("sleeveless");
+    				sleeve_sleeveless_int = Float.parseFloat(sleeve_sleeveless);
+    				sleeve_short = rs.getString("short");
+    				sleeve_short_int = Float.parseFloat(sleeve_short);
+    				sleeve_long = rs.getString("long_sleeve");
+    				sleeve_long_int = Float.parseFloat(sleeve_long);
+    				
+    				favor_sleeve_int = sleeve_sleeveless_int;
+    				if(sleeve_short_int > favor_sleeve_int) {
+    					favor_sleeve = "sleeve_length_short";
+    					favor_sleeve_int = sleeve_short_int;
+    				}
+    				if(sleeve_long_int > favor_sleeve_int) {
+    					favor_sleeve = "sleeve_length_long";
+    					favor_sleeve_int = sleeve_long_int;
+    				}
+    			}
+    			
+    			//获取用户最喜欢的松紧程度
+    			ps = conn.prepareStatement("SELECT * FROM user_pre_model WHERE user_ID=?");
+    			ps.setString(1, result);
+    			rs = ps.executeQuery();
+    			
+    			String tight, straight, loose, favor_model;
+    			favor_model = "model_tight";
+    			float tight_int, straight_int, loose_int, favor_model_int;
+    			if(rs.next()) {
+    				tight = rs.getString("tight");
+    				tight_int = Float.parseFloat(tight);
+    				straight = rs.getString("straight");
+    				straight_int = Float.parseFloat(straight);
+    				loose = rs.getString("loose");
+    				loose_int = Float.parseFloat(loose);
+    				
+    				favor_model_int = tight_int;
+    				if(straight_int > favor_model_int) {
+    					favor_model = "model_straight";
+    					favor_model_int = straight_int;
+    				}
+    				if(loose_int > favor_model_int) {
+    					favor_model = "model_loose";
+    					favor_model_int = loose_int;
+    				}
+    			}
+    			
+    			//获取用户最喜欢的服装长度
+    			ps = conn.prepareStatement("SELECT * FROM user_pre_length WHERE user_ID=?");
+    			ps.setString(1, result);
+    			rs = ps.executeQuery();
+    			
+    			String cloth_short, cloth_mid, cloth_long, favor_length;
+    			favor_length = "length_short";
+    			float cloth_short_int, cloth_mid_int, cloth_long_int, favor_length_int;
+    			if(rs.next()) {
+    				cloth_short = rs.getString("short");
+    				cloth_short_int = Float.parseFloat(cloth_short);
+    				cloth_mid = rs.getString("mid");
+    				cloth_mid_int = Float.parseFloat(cloth_mid);
+    				cloth_long = rs.getString("long_cloth");
+    				cloth_long_int = Float.parseFloat(cloth_long);
+    				
+    				favor_length_int = cloth_short_int;
+    				if(cloth_mid_int > favor_length_int) {
+    					favor_length = "length_mid";
+    					favor_length_int = cloth_mid_int;
+    				}
+    				if(cloth_long_int > favor_length_int) {
+    					favor_length = "length_long";
+    					favor_length_int = cloth_long_int;
+    				}
+    			}
+    			
+    			//获取用户最喜欢的领口形状
+    			ps = conn.prepareStatement("SELECT * FROM user_pre_collar_shape WHERE user_ID=?");
+    			ps.setString(1, result);
+    			rs = ps.executeQuery();
+    			
+    			String stand, Vshape, bateau, round, lapel, high, hoodie, favor_collar_shape;
+    			favor_collar_shape = "collar_shape_stand";
+    			float stand_int, Vshape_int, bateau_int, round_int, lapel_int, high_int, hoodie_int, favor_collar_shape_int;
+    			if(rs.next()) {
+    				stand = rs.getString("stand");
+    				stand_int = Float.parseFloat(stand);
+    				Vshape = rs.getString("Vshape");
+    				Vshape_int = Float.parseFloat(Vshape);
+    				bateau = rs.getString("bateau");
+    				bateau_int = Float.parseFloat(bateau);
+    				round = rs.getString("round");
+    				round_int = Float.parseFloat(round);
+    				lapel = rs.getString("lapel");
+    				lapel_int = Float.parseFloat(lapel);
+    				high = rs.getString("high");
+    				high_int = Float.parseFloat(high);
+    				hoodie = rs.getString("hoodie");
+    				hoodie_int = Float.parseFloat(hoodie);
+    				
+    				favor_collar_shape_int = stand_int;
+    				if(Vshape_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_V";
+    					favor_collar_shape_int = Vshape_int;
+    				}
+    				if(bateau_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_bateau";
+    					favor_collar_shape_int = bateau_int;
+    				}
+    				if(round_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_round";
+    					favor_collar_shape_int = round_int;
+    				}
+    				if(lapel_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_lapel";
+    					favor_collar_shape_int = lapel_int;
+    				}
+    				if(high_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_high";
+    					favor_collar_shape_int = high_int;
+    				}
+    				if(hoodie_int > favor_collar_shape_int) {
+    					favor_collar_shape = "collar_shape_hoodie";
+    					favor_collar_shape_int = hoodie_int;
+    				}
+    			}
+    			
+    			//针对15题中的每一题进行一张服装图像的推荐
+    			System.out.println("Begin to display pic_name\n");
+    			
+    			String query_str, temp_query_str;
+    			int max_score = 0;
+    			String user_like_pic = null;
+    			
+    			PreparedStatement temp_ps;
+    			ResultSet temp_rs;
+    			
+    			String pic_name;
+    			String now_pattern, now_sleeve, now_model, now_length, now_collar_shape;
+    			int now_score = 0;
+    			
+    			//no.1
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2015-ready-to-wear/Ace_&_Jig%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.2
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2015-ready-to-wear/Band_of_Outsiders%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.3
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2015-ready-to-wear/Central_Saint_Martins%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.4
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2015-ready-to-wear/Daks%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.5
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2005-ready-to-wear/Chanel%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.6
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2005-ready-to-wear/Aquascutum%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.7
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/spring-2010-ready-to-wear/Chanel%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.8
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/spring-2005-ready-to-wear/Ralph_Lauren%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.9
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/spring-2009-ready-to-wear/Chanel%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.10
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/spring-2009-ready-to-wear/Derercuny%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.11
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2005-ready-to-wear/Aquascutum%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.12
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2006-ready-to-wear/3.1_Phillip_Lim%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.13
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE (pic_name like \'/home/gzx/women_style/fall-2006-ready-to-wear/Sophia_Kokosalaki%\') OR (pic_name like \'/home/gzx/women_style/fall-2006-ready-to-wear/Temperley_London%\')";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.14
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE pic_name like \'/home/gzx/women_style/fall-2009-ready-to-wear/Aquascutum%\'";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
+    			
+    			//no.15
+    			query_str = "SELECT * FROM clothing_attrs2 WHERE (pic_name like \'/home/gzx/women_style/fall-2010-ready-to-wear/Vanessa_Bruno%\') OR (pic_name like \'/home/gzx/women_style/fall-2010-ready-to-wear/Vivienne_Westwood_Red_Label%\')";
+    			ps = conn.prepareStatement(query_str);
+    			rs = ps.executeQuery();
+    			
+    			max_score = 0;
+    			user_like_pic = null;
+    			
+    			pic_name = "none";
+    			while(rs.next()) {
+    				now_score = 0;
+    				pic_name = rs.getString("pic_name");
+    				
+    				//处理pattern
+    				temp_query_str = "SELECT "+ favor_pattern + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_pattern = "0";
+        			while(temp_rs.next()) {
+        				now_pattern = temp_rs.getString(favor_pattern);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_pattern.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理sleeve
+    				temp_query_str = "SELECT "+ favor_sleeve + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_sleeve = "0";
+        			while(temp_rs.next()) {
+        				now_sleeve = temp_rs.getString(favor_sleeve);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_sleeve.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理model
+    				temp_query_str = "SELECT "+ favor_model + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_model = "0";
+        			while(temp_rs.next()) {
+        				now_model = temp_rs.getString(favor_model);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_model.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理length
+    				temp_query_str = "SELECT "+ favor_length + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_length = "0";
+        			while(temp_rs.next()) {
+        				now_length = temp_rs.getString(favor_length);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_length.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			//处理collar_shape
+    				temp_query_str = "SELECT "+ favor_collar_shape + " FROM clothing_attrs2 WHERE pic_name = \'" + pic_name + "\'";
+    				temp_ps = conn.prepareStatement(temp_query_str);
+        			temp_rs = temp_ps.executeQuery();
+        			
+        			now_collar_shape = "0";
+        			while(temp_rs.next()) {
+        				now_collar_shape = temp_rs.getString(favor_collar_shape);
+        			}
+        			//判断当前图像特定属性是否满足用户的喜好，如果满足则增1
+        			if(now_collar_shape.equals("1")) {
+        				now_score++;
+        			}
+        			
+        			if(now_score > max_score) {
+        				user_like_pic = pic_name;
+        			}
+    			}
+    			System.out.println(user_like_pic);
+    			list.add(user_like_pic);
     		} else {
     			result = "none";
     		}

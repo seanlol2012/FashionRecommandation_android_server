@@ -54,6 +54,10 @@
     <servlet-class>com.demo.returnClothInfo</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>returnClothInfo2</servlet-name>
+    <servlet-class>com.demo.returnClothInfo2</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>re_returnClothInfo</servlet-name>
     <servlet-class>com.demo.re_returnClothInfo</servlet-class>
   </servlet>

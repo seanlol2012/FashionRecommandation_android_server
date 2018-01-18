@@ -65,4 +65,8 @@
     <servlet-name>getpic</servlet-name>
     <servlet-class>com.demo.getpic</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>getPicFromPersonalModel</servlet-name>
+    <servlet-class>com.demo.getPicFromPersonalModel</servlet-class>
+  </servlet>
 </web-app>
